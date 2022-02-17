@@ -1,4 +1,3 @@
-using SpecialFunctions
 using DelimitedFiles
 using Dates
 
@@ -46,10 +45,6 @@ function X_gen(Nx::Int, Ny::Int)
     vert[5] = Nx * 3 + 1
     vert[6] = 3
     return vert
-end
-
-function comb(a::Int, b::Int)
-    return exp(logfactorial(a) - logfactorial(b) - logfactorial(a-b))
 end
 
 function get_bonds_b(Nx::Int, Ny::Int)
@@ -178,24 +173,7 @@ end
 
 Nx = parse(Int,ARGS[1])
 Ny = parse(Int,ARGS[2])
-#conf_max = Nx * Ny * 6 ÷ 4
-#coe = comb.(6*Nx*Ny,1:conf_max)/1e6
 
 println(Dates.format(now(), "u d HH:MM:SS"))
 main1(Nx, Ny)
 println(Dates.format(now(), "u d HH:MM:SS"))
-#=for i in 1:10
-    conf_count, conf_zc, conf_zo, conf_xc, conf_xo0, conf_xop, conf_xom = main(Nx, Ny, Int(1e6))
-    println(conf_count)
-    println(conf_zc)
-    println(conf_zo)
-    println(conf_xc)
-    println(conf_xo0)
-    println(conf_xop)
-    println(conf_xom)
-    #println(conf_count.*coe)
-    #println(conf_z.*coe)
-    #println(conf_x.*coe)
-    flush(stdout)
-end=#
-#println(conf_count)
